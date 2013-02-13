@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/rharter/code/tv-launcher"
+		}
+	],
+	"settings":
+	{
+		"sublimejava_classpath": [
+			"/Android/android-sdk-macosx/platforms/android-17/android.jar",
+			"/Users/rharter/code/tv-launcher/bin/classes",
+			"/Users/rharter/code/tv-launcher/libs/*"
+		],
+		"sublimejava_docpath": [
+			"/Android/android-sdk-macosx/docs/reference"
+		],
+		"sublimejava_srcpath": [
+			"/Android/android-sdk-macosx/sources/android-17"
+		],
+		"sublimejava_no_visual_errors": true
+	}
+}

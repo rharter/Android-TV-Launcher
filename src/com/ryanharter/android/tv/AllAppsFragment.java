@@ -1,12 +1,5 @@
 package com.ryanharter.android.tv;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
-import android.app.WallpaperManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -15,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -25,70 +19,50 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PaintDrawable;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Gallery;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class Home extends FragmentActivity {
-	/**
-	 * Tag used for logging
-	 */
-	private static final String TAG = "Home";
-	
-	private static boolean mWallpaperChecked;
+public class AllAppsFragment extends Fragment {
+
 	private static ArrayList<ApplicationInfo> mApplications;
-	private static LinkedList<ApplicationInfo> mFavorites;
-	
-	private final BroadcastReceiver mWallpaperReceiver = new WallpaperIntentReceiver();
+
 	private final BroadcastReceiver mApplicationsReceiver = new ApplicationsIntentReceiver();
-	
-	private Gallery mAppsList;
-	
-	private LayoutAnimationController mShowLayoutAnimation;
-	private LayoutAnimationController mHideLayoutAnimation;
-	
+
+	private GridView mAppsList;
+
 	@Override
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
-		
-		setContentView(R.layout.home);
-		
-		setDefaultWallpaper();
-		
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.fragment_all_apps, container, false);
+
+		mAppsList = (GridView) v.findViewById(R.id.grid);
+
+		return v;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
 		registerIntentReceivers();
-		
 		loadApplications(true);
-		
 		bindApplications();
 		bindButtons();
+	}
 
-		getSupportFragmentManager().beginTransaction()
-			.replace(R.id.fragment_container, new AllAppsFragment())
-			.addToBackStack(null)
-			.commit();
-	}
-	
 	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		
-		// Close the menu
-		
-	}
-	
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		
-		unregisterReceiver(mWallpaperReceiver);
-		unregisterReceiver(mApplicationsReceiver);
+	public void onDetach() {
+		super.onDetach();
+		getActivity().unregisterReceiver(mApplicationsReceiver);
 	}
 	
 	/**
@@ -98,14 +72,11 @@ public class Home extends FragmentActivity {
 	 * change.
      */
 	private void registerIntentReceivers() {
-		IntentFilter filter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
-		registerReceiver(mWallpaperReceiver, filter);
-		
-		filter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
+		IntentFilter filter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
 		filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
 		filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
 		filter.addDataScheme("package");
-		registerReceiver(mApplicationsReceiver, filter);
+		getActivity().registerReceiver(mApplicationsReceiver, filter);
 	}
 	
 	/**
@@ -113,9 +84,9 @@ public class Home extends FragmentActivity {
 	 */
 	private void bindApplications() {
 		if (mAppsList == null) {
-			mAppsList = (Gallery) findViewById(R.id.all_apps);
+			mAppsList = (GridView) getView().findViewById(R.id.grid);
 		}
-		mAppsList.setAdapter(new ApplicationsAdapter(this, mApplications));
+		mAppsList.setAdapter(new ApplicationsAdapter(getActivity(), mApplications));
 		mAppsList.setSelection(0);
 	}
 	
@@ -124,28 +95,6 @@ public class Home extends FragmentActivity {
 	 */
 	private void bindButtons() {
 		mAppsList.setOnItemClickListener(new ApplicationLauncher());
-	}
-	
-	/**
-	 * When no wallpaper was manually set, a default wallpaper is used instead.
-	 */
-	private void setDefaultWallpaper() {
-		Log.d(TAG, "In setDefaultWallpaper()");
-		if (!mWallpaperChecked) {
-			WallpaperManager manager = WallpaperManager.getInstance(this);
-			Drawable wallpaper = manager.peekDrawable();
-			if (wallpaper == null) {
-				try {
-					manager.clear();
-				} catch (IOException e) {
-					Log.e(TAG, "Failed to clear wallpaper " + e);
-				}
-			} else {
-				Log.d(TAG, "Setting wallpaper");
-				getWindow().setBackgroundDrawable(wallpaper);
-			}
-			mWallpaperChecked = true;
-		}
 	}
 	
 	private static ApplicationInfo getApplicationInfo(PackageManager manager, Intent intent) {
@@ -175,7 +124,7 @@ public class Home extends FragmentActivity {
 			return;
 		}
 		
-		PackageManager manager = getPackageManager();
+		PackageManager manager = getActivity().getPackageManager();
 		
 		Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
 		mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -207,7 +156,7 @@ public class Home extends FragmentActivity {
 			}
 		}
 	}
-	
+
 	/**
      * GridView adapter to show the list of all installed applications.
      */
@@ -225,16 +174,16 @@ public class Home extends FragmentActivity {
 			final ApplicationInfo info = mApplications.get(position);
 
             if (convertView == null) {
-                final LayoutInflater inflater = getLayoutInflater();
+                final LayoutInflater inflater = getActivity().getLayoutInflater();
                 convertView = inflater.inflate(R.layout.application, parent, false);
             }
 
             Drawable icon = info.icon;
 
             if (!info.filtered) {
-                //final Resources resources = getContext().getResources();
-                int width = 64;//(int) resources.getDimension(android.R.dimen.app_icon_size);
-                int height = 64;//(int) resources.getDimension(android.R.dimen.app_icon_size);
+                final Resources resources = getActivity().getResources();
+                int width = (int) resources.getDimension(android.R.dimen.app_icon_size);
+                int height = (int) resources.getDimension(android.R.dimen.app_icon_size);
 
                 final int iconWidth = icon.getIntrinsicWidth();
                 final int iconHeight = icon.getIntrinsicHeight();
@@ -246,7 +195,7 @@ public class Home extends FragmentActivity {
                 }
 
 
-//                if (width > 0 && height > 0 && (width < iconWidth || height < iconHeight)) {
+                if (width > 0 && height > 0 && (width < iconWidth || height < iconHeight)) {
                     final float ratio = (float) iconWidth / iconHeight;
 
                     if (iconWidth > iconHeight) {
@@ -272,13 +221,14 @@ public class Home extends FragmentActivity {
                     icon.setBounds(mOldBounds);
                     icon = info.icon = new BitmapDrawable(thumb);
                     info.filtered = true;
-//                }
+                }
 
             }
 
             final TextView textView = (TextView) convertView.findViewById(R.id.label);
-            textView.setCompoundDrawablesWithIntrinsicBounds(null, icon, null, null);
+            final ImageView iconView = (ImageView) convertView.findViewById(R.id.icon);
             textView.setText(info.title);
+            iconView.setImageDrawable(icon);
 
             return convertView;
         }
@@ -291,15 +241,6 @@ public class Home extends FragmentActivity {
 		public void onItemClick(AdapterView parent, View v, int position, long id) {
 			ApplicationInfo app = (ApplicationInfo) parent.getItemAtPosition(position);
 			startActivity(app.intent);
-		}
-	}
-	
-	/**
-	 * Receives intents from other applications to change the wallpaper
-	 */
-	private class WallpaperIntentReceiver extends BroadcastReceiver {
-		public void onReceive(Context context, Intent intent) {
-			getWindow().setBackgroundDrawable(getWallpaper());
 		}
 	}
 	

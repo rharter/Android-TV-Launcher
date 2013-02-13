@@ -3,6 +3,9 @@
       package="com.ryanharter.android.tv"
       android:versionCode="1"
       android:versionName="1.0">
+
+    <uses-sdk minSdkVersion="8" targetSdkVersion="17" />
+
 	<uses-permission android:name="android.permission.SET_WALLPAPER" />
 
     <application android:persistent="true"
