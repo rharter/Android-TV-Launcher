@@ -16,3 +16,6 @@ gen/
 local.properties
 ant.properties
 *.keystore
+
+idea
+.DS_Store
