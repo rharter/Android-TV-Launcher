@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.ryanharter.atv.launcher.ui.LauncherActivity"
+                tools:ignore="MergeRootFrame" >
+
+    <View
+            android:id="@+id/collapsed_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/collapsed_height"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_collapsed"/>
+
+    <View
+            android:id="@+id/expanded_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:alpha="0"
+            android:background="@color/translucent_black"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

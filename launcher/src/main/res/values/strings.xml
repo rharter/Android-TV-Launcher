@@ -1,3 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">AndroidTvLauncher</string>
+    <string name="title_activity_launcher">Launcher</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="activity_not_found">Activity not found.</string>
+
 </resources>
