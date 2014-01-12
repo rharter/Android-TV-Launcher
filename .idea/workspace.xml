@@ -89,10 +89,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppListFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AppListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/ui/AppListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="0" selection-start="4875" selection-end="4875" vertical-scroll-proportion="0.5614035" vertical-offset="1866" max-vertical-offset="3255">
+            <state line="147" column="75" selection-start="4740" selection-end="4740" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="3255">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2216#2380#0" expanded="true" />
@@ -140,13 +140,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="styles.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/launcher/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="0" selection-start="521" selection-end="521" vertical-scroll-proportion="0.2850877" vertical-offset="0" max-vertical-offset="684">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/launcher/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <folding>
+                <element signature="e#425#458#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="fragment_app_list.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/launcher/src/main/res/layout/fragment_app_list.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="15" selection-start="1154" selection-end="1154" vertical-scroll-proportion="-8.777778" vertical-offset="138" max-vertical-offset="840">
+            <state line="30" column="15" selection-start="1306" selection-end="1306" vertical-scroll-proportion="-11.555555" vertical-offset="138" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
@@ -572,7 +592,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/launcher/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/launcher/src/main/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/widget/TextClock.java" />
         <option value="$PROJECT_DIR$/launcher/src/main/res/layout/fragment_launcher.xml" />
@@ -585,22 +604,23 @@
         <option value="$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/model/AppInfo.java" />
         <option value="$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/LauncherAppState.java" />
         <option value="$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/loader/AppLoader.java" />
-        <option value="$PROJECT_DIR$/launcher/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/launcher/src/main/res/drawable/bg_collapsed.xml" />
         <option value="$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/ui/LauncherActivity.java" />
         <option value="$PROJECT_DIR$/launcher/src/main/res/layout/activity_launcher.xml" />
         <option value="$PROJECT_DIR$/launcher/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/launcher/build.gradle" />
         <option value="$PROJECT_DIR$/launcher/src/main/res/layout/row_app.xml" />
-        <option value="$PROJECT_DIR$/launcher/src/main/res/layout/fragment_app_list.xml" />
         <option value="$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/ui/AppListFragment.java" />
+        <option value="$PROJECT_DIR$/launcher/src/main/res/layout/fragment_app_list.xml" />
+        <option value="$PROJECT_DIR$/launcher/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/launcher/src/main/res/values/styles.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="379" />
-    <option name="y" value="54" />
-    <option name="width" value="1953" />
+    <option name="x" value="45" />
+    <option name="y" value="192" />
+    <option name="width" value="1316" />
     <option name="height" value="1179" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -1194,7 +1214,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="379" y="54" width="1953" height="1179" extended-state="0" />
+    <frame x="45" y="192" width="1316" height="1179" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1210,14 +1230,14 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33019754" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33019754" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18367347" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2755102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298872" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1397,32 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/launcher/src/main/res/layout/activity_launcher.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="17" selection-start="1145" selection-end="1145" vertical-scroll-proportion="-15.555555" vertical-offset="0" max-vertical-offset="510">
-          <folding>
-            <element signature="e#507#532#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/launcher/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="330" selection-end="330" vertical-scroll-proportion="0.2189781" vertical-offset="0" max-vertical-offset="685">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/launcher/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34" selection-start="325" selection-end="325" vertical-scroll-proportion="0.17518248" vertical-offset="0" max-vertical-offset="685">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/launcher/src/main/res/layout/row_app.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1440,13 +1434,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/ui/AppListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="75" selection-start="4740" selection-end="4740" vertical-scroll-proportion="0.0" vertical-offset="1866" max-vertical-offset="3255">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2216#2380#0" expanded="true" />
+            <element signature="e#2369#2370#0" expanded="true" />
+            <element signature="e#2487#2754#0" expanded="true" />
+            <element signature="e#2743#2744#0" expanded="true" />
+            <element signature="e#5226#5402#0" expanded="true" />
+            <element signature="e#5387#5388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/launcher/src/main/res/layout/fragment_app_list.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="15" selection-start="1154" selection-end="1154" vertical-scroll-proportion="-8.777778" vertical-offset="138" max-vertical-offset="840">
+        <state line="30" column="15" selection-start="1306" selection-end="1306" vertical-scroll-proportion="-11.555555" vertical-offset="138" max-vertical-offset="900">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launcher/src/main/res/layout/activity_launcher.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="17" selection-start="1145" selection-end="1145" vertical-scroll-proportion="-15.555555" vertical-offset="0" max-vertical-offset="510">
+          <folding>
+            <element signature="e#507#532#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launcher/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding>
+            <element signature="e#425#458#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1459,18 +1489,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/launcher/src/main/java/com/ryanharter/atv/launcher/ui/AppListFragment.java">
+    <entry file="file://$PROJECT_DIR$/launcher/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="4875" selection-end="4875" vertical-scroll-proportion="0.5614035" vertical-offset="1866" max-vertical-offset="3255">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2216#2380#0" expanded="true" />
-            <element signature="e#2369#2370#0" expanded="true" />
-            <element signature="e#2487#2754#0" expanded="true" />
-            <element signature="e#2743#2744#0" expanded="true" />
-            <element signature="e#5226#5402#0" expanded="true" />
-            <element signature="e#5387#5388#0" expanded="true" />
-          </folding>
+        <state line="13" column="0" selection-start="521" selection-end="521" vertical-scroll-proportion="0.2850877" vertical-offset="0" max-vertical-offset="684">
+          <folding />
         </state>
       </provider>
     </entry>

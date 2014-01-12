@@ -9,7 +9,10 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".ui.LauncherActivity"
-            android:label="@string/title_activity_launcher" >
+            android:label="@string/title_activity_launcher"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />

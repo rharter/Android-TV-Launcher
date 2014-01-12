@@ -33,7 +33,9 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/expand_button"
             android:layout_alignParentRight="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
     </LinearLayout>
 
@@ -43,8 +45,10 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/expand_button"
             android:layout_below="@id/favorite_bar"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:numColumns="5"/>
+            android:layout_margin="8dp"
+            android:layout_marginTop="16dp"
+            android:numColumns="5"
+            android:gravity="center_horizontal"
+            android:verticalSpacing="16dp"/>
 
 </RelativeLayout>
