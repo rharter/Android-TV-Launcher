@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
@@ -24,8 +25,12 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,8 +41,11 @@ public class AppListFragment extends Fragment implements LoaderCallbacks<List<Ap
     private TextClock mClock;
     private ImageButton mAllAppsButton;
     private GridView mAppsGrid;
+    private LinearLayout mFavorites;
 
     private AppAdapter mAdapter;
+
+    static List<String> favorites = Arrays.asList("Play Movies & TV", "Netflix", "Plex", "YouTube", "Chrome");
 
     interface Callbacks {
         void onExpandButtonClick();
@@ -73,6 +81,8 @@ public class AppListFragment extends Fragment implements LoaderCallbacks<List<Ap
             }
         });
 
+        mFavorites = (LinearLayout) v.findViewById(R.id.favorite_bar);
+
         return v;
     }
 
@@ -107,6 +117,10 @@ public class AppListFragment extends Fragment implements LoaderCallbacks<List<Ap
 
     @Override
     public void onLoadFinished(Loader<List<AppInfo>> listLoader, List<AppInfo> appInfos) {
+
+        // Take out the favorites
+        appInfos = extractFavorites(appInfos);
+
         mAdapter = new AppAdapter(getActivity(), appInfos);
         mAppsGrid.setAdapter(mAdapter);
     }
@@ -114,6 +128,44 @@ public class AppListFragment extends Fragment implements LoaderCallbacks<List<Ap
     @Override
     public void onLoaderReset(Loader<List<AppInfo>> listLoader) {
         mAppsGrid.setAdapter(null);
+    }
+
+    private List<AppInfo> extractFavorites(List<AppInfo> infos) {
+        List<AppInfo> favs = new ArrayList<>(favorites.size());
+        for (String name : favorites) {
+            for (AppInfo info : infos) {
+                if (name.equals(info.title)) {
+                    favs.add(info);
+                    infos.remove(info);
+                    break;
+                }
+            }
+        }
+
+        mFavorites.removeAllViews();
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        for (AppInfo info : favs) {
+            View v = inflater.inflate(R.layout.row_app, mFavorites, false);
+            LayoutParams params = new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
+            v.setLayoutParams(params);
+
+            ImageView image = (ImageView) v.findViewById(R.id.image);
+            TextView title = (TextView) v.findViewById(R.id.title);
+            image.setImageDrawable(new BitmapDrawable(getResources(), info.iconBitmap));
+            title.setText(info.title);
+
+            final Intent appIntent = info.intent;
+            v.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(appIntent);
+                }
+            });
+
+            mFavorites.addView(v);
+        }
+
+        return infos;
     }
 
     public class AppAdapter extends ArrayAdapter<AppInfo> {

@@ -13,6 +13,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
             android:background="@drawable/bg_clock"/>
 
@@ -26,11 +27,22 @@
             android:src="@drawable/ic_allapps"
             android:background="@null"/>
 
+    <LinearLayout
+            android:id="@+id/favorite_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/expand_button"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+
+    </LinearLayout>
+
     <GridView
             android:id="@+id/app_grid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/expand_button"
+            android:layout_below="@id/favorite_bar"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:numColumns="5"/>
